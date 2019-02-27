@@ -1,0 +1,11 @@
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\bin\Debug\netcoreapp2.0\ShoppingCartPrompt.deps.json
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\bin\Debug\netcoreapp2.0\ShoppingCartPrompt.runtimeconfig.json
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\bin\Debug\netcoreapp2.0\ShoppingCartPrompt.runtimeconfig.dev.json
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\bin\Debug\netcoreapp2.0\ShoppingCartPrompt.dll
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\obj\Debug\netcoreapp2.0\ShoppingCartPrompt.csprojAssemblyReference.cache
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\obj\Debug\netcoreapp2.0\ShoppingCartPrompt.csproj.CoreCompileInputs.cache
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\obj\Debug\netcoreapp2.0\ShoppingCartPrompt.AssemblyInfoInputs.cache
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\obj\Debug\netcoreapp2.0\ShoppingCartPrompt.AssemblyInfo.cs
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\bin\Debug\netcoreapp2.0\ShoppingCartPrompt.pdb
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\obj\Debug\netcoreapp2.0\ShoppingCartPrompt.dll
+C:\Users\Tyler\source\repos\ShoppingCartPrompt\ShoppingCartPrompt\obj\Debug\netcoreapp2.0\ShoppingCartPrompt.pdb
