@@ -29,51 +29,53 @@ namespace ShoppingCartPrompt
             }
         }
 
-        public void processOffers()
+        private void sortContents()
+        {
+            _contents.Sort((a, b) => (a.Price.CompareTo(b.Price)));
+        }
+
+        private void processOffers()
         {
             int bogoCount = 0;
             int threeForTwoCount = 0;
 
+            List<Item> bogo = new List<Item>();
+            List<Item> threeForTwo = new List<Item>();
             List<Item> discounts = new List<Item>();
 
-            foreach (Item i in _contents) {
-                if(i.Offer == 1)
-                {
-                    if (bogoCount < 1)
-                    {
-                        bogoCount++;
-                    }
-                    else if (bogoCount == 1)
-                    {
-                        Item n = new Item("Bogo Discount", -i.Price, 0);
-                        discounts.Add(n);
+            bogo = _contents.Where(i => i.Offer == 1).ToList();
+            bogo.Sort((a, b) => (a.Price.CompareTo(b.Price)));
 
-                        bogoCount = 0;
-                    }
-                }
-                else if (i.Offer == 2)
-                {
-                    if (threeForTwoCount < 2)
-                    {
-                        threeForTwoCount++;
-                    }
-                    else if (threeForTwoCount == 2)
-                    {
-                        Item n = new Item("Three For Two Discount", -i.Price, 0);
-                        discounts.Add(n);
+            bogoCount = bogo.Count / 2;
 
-                        threeForTwoCount = 0;
-                    }
-                }
+            for (int i = 0; i < bogoCount; i++)
+            {
+                Item n = new Item("BOGO Discount - " + bogo[i].Name, -(bogo[1].Price), 0);
 
+                discounts.Add(n);
+            }
+
+            threeForTwo = _contents.Where(i => i.Offer == 2).ToList();
+            threeForTwo.Sort((a, b) => (a.Price.CompareTo(b.Price)));
+
+            threeForTwoCount = threeForTwo.Count / 3;
+
+            for (int i = 0; i < threeForTwoCount; i++)
+            {
+                Item n = new Item("Three For Two Discount - " + threeForTwo[i].Name, -(threeForTwo[1].Price), 0);
+
+                discounts.Add(n);
             }
 
             _contents.AddRange(discounts);
+
         }
+
 
         public double getTotal()
         {
-           processOffers();
+            sortContents();
+            processOffers();
 
             double total = 0;
 

@@ -8,5 +8,11 @@
 		"Name":"Orange"
 		,"Price":"0.65"
 		,"Offer":"2"
+	},
+	{
+		"Name":"Banana"
+		,"Price":"0.60"
+		,"Offer":"1"
 	}
+	
 ]
