@@ -7,3 +7,5 @@ v0.2 Contains solution outlined for Step 2 of exercise provided.
 v0.3 Contains solution outlined for Step 3 of exercise provided.
 
 v0.4 Contains solution outlined for Step 4 of exercise provided.
+
+v0.5 Contains solution outlined for Step 5 of exercise provided.

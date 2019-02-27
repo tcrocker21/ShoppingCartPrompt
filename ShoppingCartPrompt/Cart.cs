@@ -15,9 +15,13 @@ namespace ShoppingCartPrompt
             set { _contents = value;  }
         }
         
-        public Cart(string input)
+        public Cart()
         {
             _contents = new List<Item>();
+        }
+
+        public void addContents(string input)
+        {
             List<String> raw = input.Split(',').ToList();
 
             foreach (string i in raw)
@@ -27,6 +31,25 @@ namespace ShoppingCartPrompt
 
                 _contents.Add(n);
             }
+        }
+
+        public void clearContents()
+        {
+            _contents.Clear();
+        }
+
+        public string printContents()
+        {
+            string p = "";
+
+            foreach (Item i in _contents)
+            {
+                p += i.Name + " - [" + i.Price.ToString() + "]" + System.Environment.NewLine; 
+            }
+
+            p += "Order total - " + getTotal().ToString();
+
+            return p;
         }
 
         private void sortContents()
@@ -50,7 +73,7 @@ namespace ShoppingCartPrompt
 
             for (int i = 0; i < bogoCount; i++)
             {
-                Item n = new Item("BOGO Discount - " + bogo[i].Name, -(bogo[1].Price), 0);
+                Item n = new Item("BOGO Discount - " + bogo[i].Name, -(bogo[i].Price), 0);
 
                 discounts.Add(n);
             }
@@ -62,7 +85,7 @@ namespace ShoppingCartPrompt
 
             for (int i = 0; i < threeForTwoCount; i++)
             {
-                Item n = new Item("Three For Two Discount - " + threeForTwo[i].Name, -(threeForTwo[1].Price), 0);
+                Item n = new Item("Three For Two Discount - " + threeForTwo[i].Name, -(threeForTwo[i].Price), 0);
 
                 discounts.Add(n);
             }
