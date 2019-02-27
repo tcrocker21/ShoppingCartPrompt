@@ -41,24 +41,32 @@ namespace ShoppingCartPrompt
         public string printContents()
         {
             string p = "";
+            double total = 0;
 
             foreach (Item i in _contents)
             {
-                p += i.Name + " - [" + i.Price.ToString() + "]" + System.Environment.NewLine; 
+                p += i.Name + " - [" + i.Price.ToString() + "]" + System.Environment.NewLine;
+                total += i.Price;
             }
 
-            p += "Order total - " + getTotal().ToString();
+            p += "Order total - " + total.ToString();
 
             return p;
         }
 
         private void sortContents()
         {
-            _contents.Sort((a, b) => (a.Price.CompareTo(b.Price)));
+            _contents.Sort((a, b) => (b.Price.CompareTo(a.Price)));
+        }
+
+        private void clearOffers()
+        {
+            _contents.RemoveAll(x => x.Offer == 0);
         }
 
         private void processOffers()
         {
+
             int bogoCount = 0;
             int threeForTwoCount = 0;
 
@@ -67,25 +75,25 @@ namespace ShoppingCartPrompt
             List<Item> discounts = new List<Item>();
 
             bogo = _contents.Where(i => i.Offer == 1).ToList();
-            bogo.Sort((a, b) => (a.Price.CompareTo(b.Price)));
+            bogo.Sort((a, b) => (b.Price.CompareTo(a.Price)));
 
             bogoCount = bogo.Count / 2;
 
             for (int i = 0; i < bogoCount; i++)
             {
-                Item n = new Item("BOGO Discount - " + bogo[i].Name, -(bogo[i].Price), 0);
+                Item n = new Item("BOGO Discount - " + bogo[i*2].Name, -(bogo[i*2].Price), 0);
 
                 discounts.Add(n);
             }
 
             threeForTwo = _contents.Where(i => i.Offer == 2).ToList();
-            threeForTwo.Sort((a, b) => (a.Price.CompareTo(b.Price)));
+            threeForTwo.Sort((a, b) => (b.Price.CompareTo(a.Price)));
 
             threeForTwoCount = threeForTwo.Count / 3;
 
             for (int i = 0; i < threeForTwoCount; i++)
             {
-                Item n = new Item("Three For Two Discount - " + threeForTwo[i].Name, -(threeForTwo[i].Price), 0);
+                Item n = new Item("Three For Two Discount - " + threeForTwo[i*3].Name, -(threeForTwo[i*3].Price), 0);
 
                 discounts.Add(n);
             }
@@ -97,6 +105,7 @@ namespace ShoppingCartPrompt
 
         public double getTotal()
         {
+            clearOffers();
             sortContents();
             processOffers();
 
