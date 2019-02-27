@@ -2,9 +2,11 @@
 	{
 		"Name":"Apple"
 		,"Price":"0.45"
+		,"Offer":"1"
 	},
 	{
 		"Name":"Orange"
 		,"Price":"0.65"
+		,"Offer":"2"
 	}
 ]
