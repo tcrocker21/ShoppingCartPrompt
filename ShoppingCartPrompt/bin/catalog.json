@@ -13,6 +13,11 @@
 		"Name":"Banana"
 		,"Price":"0.60"
 		,"Offer":"1"
+	},
+	{
+		"Name":"Melon"
+		,"Price":"1.00"
+		,"Offer":"2"
 	}
 	
 ]
